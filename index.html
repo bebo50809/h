@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Translate Redirector</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2rem; }
+    input, button { padding: 0.5rem; margin-top: 1rem; width: 100%; max-width: 400px; }
+  </style>
+</head>
+<body>
+  <h1>Translate Any Page</h1>
+  <input type="text" id="urlInput" placeholder="Enter a URL (e.g., https://www.example.com)">
+  <button onclick="redirect()">Translate</button>
+
+  <script>
+    function redirect() {
+      const userUrl = document.getElementById('urlInput').value.trim();
+      if (!userUrl) return alert("Please enter a URL.");
+      const encodedUrl = encodeURIComponent(userUrl);
+      const translateUrl = `https://translate.google.com/translate?tl=en&u=${encodedUrl}`;
+      window.location.href = translateUrl;
+    }
+  </script>
+</body>
+</html>
